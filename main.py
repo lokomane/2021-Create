@@ -91,6 +91,10 @@ def hide_con():
     aus.clear()
     ant.clear()
 sg = trtl.Turtle()
+#Create lists of random facts
+AfricaFacts = ["Africa is the second largest continent on earth!", "Between 1500 and 2000 languages are spoken!", "Africa has the longest the largest river, The Nile!", "Africa has the worlds largest desert, the Sahara!", "Africa has the oldest relics of human Civilization!"]
+NAFacts = ["North America is third largest Continent!","North America was named after the explorer, Americo Vespucci!","North America is the only Continent that has every type of climate!","Lake Superior is the largest body of freshwater in the world!","The island of Greenland is the largest island in the world!"]
+SAFacts = ["South America is the fourth Largest country in the world!", "The country Brazil takes up half of the continents land mass!", "South America hold 40% of the world plants in less then 15% of earth's land space!","The Andes moutnain range is the longest mountain range in the world!", "The Atacama Desert is the world driest non polar desert!"]
 #Box points
 #(350,275),(-450,275),(-450,-250),(350,275)
 #Set location of continent turtles and print names
@@ -106,7 +110,7 @@ def name_con():
     na.goto(-355,150)
     na.write("North America",font= font_setup)
     ant.goto(0,-175)
-    ant.write("Antartica",font= font_setup)
+    ant.write("Antarctica",font= font_setup)
     aus.goto(250,-60)
     aus.write("Australia",font= font_setup)
 #start Game function
@@ -148,6 +152,12 @@ def africa_box(x,y):
     africa.goto(350, 275)
     africa.end_fill()
     africa.penup()
+    africa.goto(-125,200)
+    africa.write("Africa", font = title_font)
+    africa.goto(-100,175)
+    africa.write("Population:1,385,809,393", font = font_setup)
+    africa.goto(-50,150)
+    africa.write("Size:11.73 million mi²", font = font_setup)
 def na_box(x,y):
     hide_con()
     na.showturtle()
