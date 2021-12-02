@@ -1,5 +1,6 @@
 #import Turtles
 import turtle as trtl
+import random as rand
 wn = trtl.Screen()
 #setup
 wn.setup(width=1.0, height=1.0)
@@ -18,6 +19,8 @@ asia = trtl.Turtle()
 eu = trtl.Turtle()
 aus = trtl.Turtle()
 ant = trtl.Turtle()
+#go back turtles
+gb = trtl.Turtle()
 #set speed for other turtles
 africa.speed(0)
 na.speed(0)
@@ -34,6 +37,7 @@ asia.hideturtle()
 eu.hideturtle()
 aus.hideturtle()
 ant.hideturtle()
+gb.hideturtle()
 # Pen up for ease and future use
 africa.penup()
 na.penup()
@@ -90,14 +94,6 @@ def hide_con():
     eu.clear()
     aus.clear()
     ant.clear()
-sg = trtl.Turtle()
-#Create lists of random facts
-AfricaFacts = ["Africa is the second largest continent on earth!", "Between 1500 and 2000 languages are spoken!", "Africa has the longest the largest river, The Nile!", "Africa has the worlds largest desert, the Sahara!", "Africa has the oldest relics of human Civilization!"]
-NAFacts = ["North America is third largest Continent!","North America was named after the explorer, Americo Vespucci!","North America is the only Continent that has every type of climate!","Lake Superior is the largest body of freshwater in the world!","The island of Greenland is the largest island in the world!"]
-SAFacts = ["South America is the fourth Largest country in the world!", "The country Brazil takes up half of the continents land mass!", "South America hold 40% of the world plants in less then 15% of earth's land space!","The Andes moutnain range is the longest mountain range in the world!", "The Atacama Desert is the world driest non polar desert!"]
-#Box points
-#(350,275),(-450,275),(-450,-250),(350,275)
-#Set location of continent turtles and print names
 def name_con():
     africa.goto(-35,75)
     africa.write("Africa",font= font_setup)
@@ -113,6 +109,26 @@ def name_con():
     ant.write("Antarctica",font= font_setup)
     aus.goto(250,-60)
     aus.write("Australia",font= font_setup)
+def go_back(x,y):
+    gb.clear()
+    gb.hideturtle()
+    hide_con()
+    name_con()
+    create_con()
+
+sg = trtl.Turtle()
+#Create lists of random facts
+AfricaFacts = ["Africa is the second largest continent on earth!", "Between 1500 and 2000 languages are spoken!", "Africa has the longest the largest river, The Nile!", "Africa has the worlds largest desert, the Sahara!", "Africa has the oldest relics of human Civilization!"]
+NAFacts = ["North America is third largest Continent!","North America was named after the explorer, Americo Vespucci!","North America is the only Continent that has every type of climate!","Lake Superior is the largest body of freshwater in the world!","The island of Greenland is the largest island in the world!"]
+SAFacts = ["South America is the fourth Largest country in the world!", "The country Brazil takes up half of the continents land mass!", "South America hold 40% of the world plants in less then 15% of earth's land space!","The Andes mountain range is the longest mountain range in the world!", "The Atacama Desert is the world driest non polar desert!"]
+AUSFACTS = ["Australia is the smallest Continent!","Tasmania has the cleanest air in the world!","The Great Barrier Reef is the largest eco-system in the world!","Australia is known as a island Continent!","The sheep population in Australia is higher then the Human population!"]
+EUFacts = ["Europe is the sixth Largest Continent!","There are no deserts in europe!","Europe is a large peninsula made up of small peninsulas!","Every country is no more than 300 miles away from sea!","The Vatican City is the smallest country in the world!"]
+ASIAFacts = ["Asia is the largest continent on earth!","Asia has 30% of the worlds land and 60% of worlds population!","Asia is home to the 10 highest mountains in the world!","Asia is home tot he largest country, Russia!","Asia also has the lowest point on earth, the Dead Sea!"]
+ANTFacts = ["Antarctica holds most of the world's fresh water!","Antarctica is a polar desert!","There’s a subglacial lake that flows blood red!","Antarctica is fifth largest Continent!","More than 10 countries have research stations in Antarctica!"]
+#Box points
+#(350,275),(-450,275),(-450,-250),(350,275)
+#Set location of continent turtles and print names
+
 #start Game function
 sg.speed(0)
 sg.fillcolor("aquamarine")
@@ -140,7 +156,11 @@ sg.write("Then click go back in the left corner to go back to the map!", font = 
 sg.goto(-350,-50)
 #creating the fact screen
 def africa_box(x,y):
+    global AfricaFacts
+    fact = rand.choice(AfricaFacts)
     hide_con()
+    #go back turtle
+
     africa.showturtle()
     africa.fillcolor(color)
     africa.begin_fill()
@@ -158,6 +178,12 @@ def africa_box(x,y):
     africa.write("Population:1,385,809,393", font = font_setup)
     africa.goto(-50,150)
     africa.write("Size:11.73 million mi²", font = font_setup)
+    africa.goto(-50,100)
+    africa.write(fact, font = font_setup)
+    gb.showturtle()
+    gb.penup()
+    gb.goto(-435,-235)
+    gb.write("Click me to go Back!")
 def na_box(x,y):
     hide_con()
     na.showturtle()
@@ -255,6 +281,7 @@ eu.onclick(eu_box)
 asia.onclick(asia_box)
 aus.onclick(aus_box)
 ant.onclick(ant_box)
+gb.onclick(go_back)
 
 
 
