@@ -11,6 +11,14 @@ shape = "square"
 size = .5
 color = "goldenrod"
 button_color = "slateblue"
+done_color = "green"
+africa_click = 0
+na_click = 0
+sa_click = 0
+asia_click = 0
+ant_click = 0
+aus_click = 0
+eu_click = 0
 #List of turtles/continents
 #Create continents functions
 sg = trtl.Turtle()
@@ -77,20 +85,49 @@ eu.fillcolor(color)
 aus.fillcolor(color)
 ant.fillcolor(color)
 def create_con():
-    africa.fillcolor(color)
-    na.fillcolor(color)
-    sa.fillcolor(color)
-    asia.fillcolor(color)
-    eu.fillcolor(color)
-    aus.fillcolor(color)
-    ant.fillcolor(color)
-    africa.showturtle()
-    na.showturtle()
-    sa.showturtle()
-    asia.showturtle()
-    eu.showturtle()
-    aus.showturtle()
-    ant.showturtle()
+#Thes statements represet the color of object
+    if africa_click > 0:
+        africa.fillcolor(done_color)
+        africa.showturtle()
+    else:
+        africa.fillcolor(color)
+        africa.showturtle()
+    if na_click > 0:
+        na.fillcolor(done_color)
+        na.showturtle()
+    else:
+        na.fillcolor(color)
+        na.showturtle()
+    if sa_click > 0:
+        sa.fillcolor(done_color)
+        sa.showturtle()
+    else:
+        sa.fillcolor(color)
+        sa.showturtle()
+    if eu_click > 0:
+        eu.fillcolor(done_color)
+        eu.showturtle()
+    else:
+        eu.showturtle()
+        eu.fillcolor(color)
+    if ant_click > 0:
+        ant.fillcolor(done_color)
+        ant.showturtle()
+    else:
+        ant.fillcolor(color)
+        ant.showturtle()
+    if asia_click > 0:
+        asia.fillcolor(done_color)
+        asia.showturtle()
+    else:
+        asia.fillcolor(color)
+        asia.showturtle()
+    if aus_click > 0:
+        aus.fillcolor(done_color)
+        aus.showturtle()
+    else:
+        aus.fillcolor(color)
+        aus.showturtle()
 def hide_con():
     africa.hideturtle()
     na.hideturtle()
@@ -169,7 +206,7 @@ sg.write("Then click the go back button in the left corner to go back to the map
 sg.goto(-375,-50)
 #creating the fact screen
 def africa_box(x,y):
-    global AfricaFacts
+    global AfricaFacts, africa_click
     fact = rand.choice(AfricaFacts)
     hide_con()
     #go back turtle
@@ -200,8 +237,9 @@ def africa_box(x,y):
     gb.penup()
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
+    africa_click += 1
 def na_box(x,y):
-    global NAFacts
+    global NAFacts, na_click
     fact = rand.choice(NAFacts)
     hide_con()
     na.showturtle()
@@ -231,8 +269,9 @@ def na_box(x,y):
     gb.penup()
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
+    na_click  += 1
 def ant_box(x,y):
-    global ANTFacts
+    global ANTFacts, ant_click
     fact = rand.choice(ANTFacts)
     hide_con()
     ant.showturtle()
@@ -262,8 +301,9 @@ def ant_box(x,y):
     gb.penup()
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
+    ant_click += 1
 def aus_box(x, y):
-    global AUSFACTS
+    global AUSFACTS, aus_click
     fact = rand.choice(AUSFACTS)
     hide_con()
     aus.showturtle()
@@ -293,8 +333,9 @@ def aus_box(x, y):
     gb.penup()
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
+    aus_click += 1
 def eu_box(x, y):
-    global EUFacts
+    global EUFacts, eu_click
     fact = rand.choice(EUFacts)
     hide_con()
     eu.showturtle()
@@ -325,7 +366,7 @@ def eu_box(x, y):
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
 def asia_box(x, y):
-    global ASIAFacts
+    global ASIAFacts, asia_click
     fact = rand.choice(ASIAFacts)
     hide_con()
     asia.showturtle()
@@ -355,8 +396,9 @@ def asia_box(x, y):
     gb.penup()
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
+    asia_click += 1
 def sa_box(x, y):
-    global SAFacts
+    global SAFacts, sa_click
     fact = rand.choice(SAFacts)
     hide_con()
     sa.showturtle()
@@ -371,7 +413,7 @@ def sa_box(x, y):
     sa.end_fill()
     sa.fillcolor(button_color)
     sa.penup()
-    sa.goto(-125, 200)
+    sa.goto(-200, 200)
     sa.write("South America", font=title_font)
     sa.goto(-200,150)
     sa.write("Population:430,759,766", font=font_setup)
@@ -386,6 +428,7 @@ def sa_box(x, y):
     gb.penup()
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
+    sa_click += 1
 #Hiding game start
 def start_game(x,y):
     sg.clear()
