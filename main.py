@@ -365,6 +365,7 @@ def eu_box(x, y):
     gb.penup()
     gb.goto(-435,-235)
     gb.write("Click me to go Back!", font = font_setup)
+    eu_click += 1
 def asia_box(x, y):
     global ASIAFacts, asia_click
     fact = rand.choice(ASIAFacts)
