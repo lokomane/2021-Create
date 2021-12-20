@@ -84,8 +84,24 @@ asia.fillcolor(color)
 eu.fillcolor(color)
 aus.fillcolor(color)
 ant.fillcolor(color)
+location_list = [35,75,150,150,15,175,275,10,355,150,0,175,250,60]
 def create_con():
 #Thes statements represet the color of object
+    global location_list
+    africa.goto(-location_list[0], location_list[1])
+    africa.write("Africa", font=font_setup)
+    asia.goto(location_list[2], location_list[3])
+    asia.write("Asia", font=font_setup)
+    eu.goto(-location_list[4], location_list[5])
+    eu.write("Europe", font=font_setup)
+    sa.goto(-location_list[6], location_list[7])
+    sa.write("South America", font=font_setup)
+    na.goto(-location_list[8], location_list[9])
+    na.write("North America", font=font_setup)
+    ant.goto(location_list[10], -location_list[11])
+    ant.write("Antarctica", font=font_setup)
+    aus.goto(location_list[12], -location_list[13])
+    aus.write("Australia", font=font_setup)
     if africa_click > 0:
         africa.fillcolor(done_color)
         africa.showturtle()
@@ -144,31 +160,21 @@ def hide_con():
     eu.clear()
     aus.clear()
     ant.clear()
-def name_con():
-    africa.goto(-35,75)
-    africa.write("Africa",font= font_setup)
-    asia.goto(150,150)
-    asia.write("Asia",font= font_setup)
-    eu.goto(-15,175)
-    eu.write("Europe",font= font_setup)
-    sa.goto(-275,10)
-    sa.write("South America",font= font_setup)
-    na.goto(-355,150)
-    na.write("North America",font= font_setup)
-    ant.goto(0,-175)
-    ant.write("Antarctica",font= font_setup)
-    aus.goto(250,-60)
-    aus.write("Australia",font= font_setup)
+
 def go_back(x,y):
     gb.clear()
     gb.hideturtle()
     hide_con()
-    name_con()
+
     create_con()
 
 
 #Create lists of random facts
-AfricaFacts = ["Africa is the second largest continent on earth!", "Between 1500 and 2000 languages are spoken!", "Africa has the longest the largest river, The Nile!", "Africa has the worlds largest desert, the Sahara!", "Africa has the oldest relics of human Civilization!"]
+AfricaFacts = ["Africa is the second largest continent on earth!",
+               "Between 1500 and 2000 languages are spoken!",
+               "Africa has the longest the largest river, The Nile!",
+               "Africa has the worlds largest desert, the Sahara!",
+               "Africa has the oldest relics of human Civilization!"]
 NAFacts = ["North America is third largest Continent!","North America was named after the explorer, Americo Vespucci!","North America is the only Continent that has every type of climate!","Lake Superior is the largest body of freshwater in the world!","The island of Greenland is the largest island in the world!"]
 SAFacts = ["South America is the fourth Largest country in the world!", "The country Brazil takes up half of the continents land mass!", "South America hold 40% of the world plants in less then 15% of earth's land space!","The Andes mountain range is the longest mountain range in the world!", "The Atacama Desert is the world driest non polar desert!"]
 AUSFACTS = ["Australia is the smallest Continent!","Tasmania has the cleanest air in the world!","The Great Barrier Reef is the largest eco-system in the world!","Australia is known as a island Continent!","The sheep population in Australia is higher then the Human population!"]
@@ -435,7 +441,8 @@ def start_game(x,y):
     sg.clear()
     sg.hideturtle()
     create_con()
-    name_con()
+
+
 sg.goto(-200,-175)
 sg.write("Click me to Begin!",font = font_setup)
 sg.turtlesize(10)
