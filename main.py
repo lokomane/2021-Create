@@ -88,19 +88,22 @@ location_list = [35,75,150,150,15,175,275,10,355,150,0,175,250,60]
 def create_con():
 #Thes statements represet the color of object
     global location_list
+    delete = location_list.pop(0)
     africa.goto(-location_list[0], location_list[1])
     africa.write("Africa", font=font_setup)
-    asia.goto(location_list[2], location_list[3])
+    location_list.append(delete)
+    location_list.append(delete)
+    asia.goto(location_list[0], location_list[1])
     asia.write("Asia", font=font_setup)
-    eu.goto(-location_list[4], location_list[5])
+    eu.goto(-location_list[0], location_list[1])
     eu.write("Europe", font=font_setup)
-    sa.goto(-location_list[6], location_list[7])
+    sa.goto(-location_list[0], location_list[1])
     sa.write("South America", font=font_setup)
-    na.goto(-location_list[8], location_list[9])
+    na.goto(-location_list[0], location_list[1])
     na.write("North America", font=font_setup)
-    ant.goto(location_list[10], -location_list[11])
+    ant.goto(location_list[0], -location_list[1])
     ant.write("Antarctica", font=font_setup)
-    aus.goto(location_list[12], -location_list[13])
+    aus.goto(location_list[0], -location_list[1])
     aus.write("Australia", font=font_setup)
     if africa_click > 0:
         africa.fillcolor(done_color)
