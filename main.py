@@ -19,6 +19,7 @@ asia_click = 0
 ant_click = 0
 aus_click = 0
 eu_click = 0
+continet_value = 0
 #List of turtles/continents
 #Create continents functions
 sg = trtl.Turtle()
@@ -84,27 +85,50 @@ asia.fillcolor(color)
 eu.fillcolor(color)
 aus.fillcolor(color)
 ant.fillcolor(color)
-location_list = [35,75,150,150,15,175,275,10,355,150,0,175,250,60]
+location_listx = [35,150,15,275,355,0,250]
+location_listy = [75,150,175,10,150,175,60]
 def create_con():
 #Thes statements represet the color of object
-    global location_list
-    delete = location_list.pop(0)
-    africa.goto(-location_list[0], location_list[1])
-    africa.write("Africa", font=font_setup)
-    location_list.append(delete)
-    location_list.append(delete)
-    asia.goto(location_list[0], location_list[1])
-    asia.write("Asia", font=font_setup)
-    eu.goto(-location_list[0], location_list[1])
-    eu.write("Europe", font=font_setup)
-    sa.goto(-location_list[0], location_list[1])
-    sa.write("South America", font=font_setup)
-    na.goto(-location_list[0], location_list[1])
-    na.write("North America", font=font_setup)
-    ant.goto(location_list[0], -location_list[1])
-    ant.write("Antarctica", font=font_setup)
-    aus.goto(location_list[0], -location_list[1])
-    aus.write("Australia", font=font_setup)
+    global location_list,continet_value
+
+    while continet_value <= 14:
+        africa.goto(-location_listx[0], location_listy[0])
+        africa.write("Africa", font=font_setup)
+        location_listx.pop()
+        location_listy.pop()
+        print (location_listx)
+        print (location_listy)
+        '''
+        asia.goto(location_list[0], location_list[1])
+        asia.write("Asia", font=font_setup)
+        location_list.append(delete)
+        delete = location_list.pop(0)
+        location_list.append(delete)
+        delete = location_list.pop(0)
+        eu.goto(-location_list[0], location_list[1])
+        eu.write("Europe", font=font_setup)
+        location_list.append(delete)
+        location_list.append(delete)
+        sa.goto(-location_list[0], location_list[1])
+        sa.write("South America", font=font_setup)
+        location_list.append(delete)
+        location_list.append(delete)
+        na.goto(-location_list[0], location_list[1])
+        na.write("North America", font=font_setup)
+        location_list.append(delete)
+        location_list.append(delete)
+        ant.goto(location_list[0], -location_list[1])
+        ant.write("Antarctica", font=font_setup)
+        location_list.append(delete)
+        location_list.append(delete)
+        aus.goto(location_list[0], -location_list[1])
+        aus.write("Australia", font=font_setup)
+        location_list.append(delete)
+        location_list.append(delete)
+        print (location_list)
+        '''
+        continet_value += 1
+
     if africa_click > 0:
         africa.fillcolor(done_color)
         africa.showturtle()
