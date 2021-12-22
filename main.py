@@ -89,88 +89,81 @@ location_listx = [35,150,15,275,355,0,250]
 location_listy = [75,150,175,10,150,175,60]
 def create_con():
 #Thes statements represet the color of object
-    global location_list,continet_value
+    global location_listx,location_listy,continet_value
 
-    while continet_value <= 14:
+    while continet_value <= 7:
+      if continet_value == 0:
         africa.goto(-location_listx[0], location_listy[0])
         africa.write("Africa", font=font_setup)
-        location_listx.pop()
-        location_listy.pop()
-        print (location_listx)
-        print (location_listy)
-        '''
-        asia.goto(location_list[0], location_list[1])
+        if africa_click > 0:
+          africa.fillcolor(done_color)
+          africa.showturtle()
+        else:
+          africa.fillcolor(color)
+          africa.showturtle()
+      elif continet_value == 1:
+        asia.goto(location_listx[1], location_listy[1])
         asia.write("Asia", font=font_setup)
-        location_list.append(delete)
-        delete = location_list.pop(0)
-        location_list.append(delete)
-        delete = location_list.pop(0)
-        eu.goto(-location_list[0], location_list[1])
+        if asia_click > 0:
+          asia.fillcolor(done_color)
+          asia.showturtle()
+        else:
+          asia.fillcolor(color)
+          asia.showturtle()
+      elif continet_value == 2:
+        eu.goto(-location_listx[2], location_listy[2])
         eu.write("Europe", font=font_setup)
-        location_list.append(delete)
-        location_list.append(delete)
-        sa.goto(-location_list[0], location_list[1])
+        if eu_click > 0:
+          eu.fillcolor(done_color)
+          eu.showturtle()
+        else:
+          eu.showturtle()
+          eu.fillcolor(color)
+      elif continet_value == 3:
+        sa.goto(-location_listx[3], location_listy[3])
         sa.write("South America", font=font_setup)
-        location_list.append(delete)
-        location_list.append(delete)
-        na.goto(-location_list[0], location_list[1])
+        if sa_click > 0:
+          sa.fillcolor(done_color)
+          sa.showturtle()
+        else:
+          sa.fillcolor(color)
+          sa.showturtle()
+      elif continet_value == 4:
+        na.goto(-location_listx[4], location_listy[4])
         na.write("North America", font=font_setup)
-        location_list.append(delete)
-        location_list.append(delete)
-        ant.goto(location_list[0], -location_list[1])
+        if na_click > 0:
+          na.fillcolor(done_color)
+          na.showturtle()
+        else:
+          na.fillcolor(color)
+          na.showturtle()
+      elif continet_value == 5:
+        ant.goto(location_listx[5], -location_listy[5])
         ant.write("Antarctica", font=font_setup)
-        location_list.append(delete)
-        location_list.append(delete)
-        aus.goto(location_list[0], -location_list[1])
+        if ant_click > 0:
+          ant.fillcolor(done_color)
+          ant.showturtle()
+        else:
+          ant.fillcolor(color)
+          ant.showturtle()
+      elif continet_value == 6:
+        aus.goto(location_listx[6], -location_listy[6])
         aus.write("Australia", font=font_setup)
-        location_list.append(delete)
-        location_list.append(delete)
-        print (location_list)
-        '''
+        if aus_click > 0:
+          aus.fillcolor(done_color)
+          aus.showturtle()
+        else:
+          aus.fillcolor(color)
+          aus.showturtle()
+        
         continet_value += 1
+  continent_value = 0
 
-    if africa_click > 0:
-        africa.fillcolor(done_color)
-        africa.showturtle()
-    else:
-        africa.fillcolor(color)
-        africa.showturtle()
-    if na_click > 0:
-        na.fillcolor(done_color)
-        na.showturtle()
-    else:
-        na.fillcolor(color)
-        na.showturtle()
-    if sa_click > 0:
-        sa.fillcolor(done_color)
-        sa.showturtle()
-    else:
-        sa.fillcolor(color)
-        sa.showturtle()
-    if eu_click > 0:
-        eu.fillcolor(done_color)
-        eu.showturtle()
-    else:
-        eu.showturtle()
-        eu.fillcolor(color)
-    if ant_click > 0:
-        ant.fillcolor(done_color)
-        ant.showturtle()
-    else:
-        ant.fillcolor(color)
-        ant.showturtle()
-    if asia_click > 0:
-        asia.fillcolor(done_color)
-        asia.showturtle()
-    else:
-        asia.fillcolor(color)
-        asia.showturtle()
-    if aus_click > 0:
-        aus.fillcolor(done_color)
-        aus.showturtle()
-    else:
-        aus.fillcolor(color)
-        aus.showturtle()
+    
+    
+
+
+
 def hide_con():
     africa.hideturtle()
     na.hideturtle()
